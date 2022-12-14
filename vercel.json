@@ -1,12 +1,17 @@
 {
+    "builds": [
+        {
+            "src": "crop_prediction_using_ML/wsgi.py",
+            "use": "@ardnt/vercel-python-wsgi",
+            "config": {
+                "maxLambdaSize": "15mb"
+            }
+        }
+    ],
     "routes": [
         {
-            "handle": "filesystem"
-        },
-        {
             "src": "/(.*)",
-            "status": 404,
-            "dest": "templates/index.html"
+            "dest": "crop_prediction_using_ML/wsgi.py"
         }
     ]
 }
